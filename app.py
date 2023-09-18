@@ -113,20 +113,19 @@ def main():
                 #image.save(png_image_path)
 
                 # Display input/output
-                st.subheader("Model input/output ")
+                st.subheader("Model input:")
 
-                fig, ax = plt.subplots(2, 1, figsize=(20,15))
-
-                ax[0].imshow(array[0,:,:,:3])
-                ax[0].set_title('Low Resolution Image')
-                ax[0].axis('off')
-
-                ax[1].imshow(prediction[0,:,:,:3])
-                ax[1].set_title('High Resolution Image')
-                ax[1].axis('off')
-
+                fig, ax = plt.subplots(1, 1, figsize=(10,10))
+                ax.imshow(array[0,:,:,:3])
+                ax.axis('off')
                 st.pyplot(fig)
 
+                st.subheader("Model output:")
+
+                fig, ax = plt.subplots(1, 1, figsize=(10, 10))
+                ax.imshow(prediction[0,:,:,:3])
+                ax.axis('off')
+                st.pyplot(fig)
 
 
 if __name__ == "__main__":
