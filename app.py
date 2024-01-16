@@ -8,7 +8,6 @@ import numpy as np
 import streamlit as st
 from streamlit_folium import st_folium
 import matplotlib.pyplot as plt
-from shapely import Polygon
 
 # Include local library paths if you have ../src/utils.py
 sys.path.append("src/")
@@ -106,11 +105,6 @@ def main():
                 # Get prediction
                 predictor = Predictor(folder_path = 'data/Models/', dataset_name = 'L8_S2_SR_x3', model = pre_generator)
                 prediction = predictor.predict(input_array=array, norm_range=[[0,1], [-1,1]])
-
-                ## Convert the RGB prediction array to PNG format using PIL
-                #image = Image.fromarray(prediction[0,:,:,:3].astype(np.uint8))
-                #png_image_path = "data/processed/image_overlay.png"
-                #image.save(png_image_path)
 
                 # Display input/output
                 st.subheader("Model input:")
